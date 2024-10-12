@@ -7,6 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  color: #333;
   text-align: center;
   padding: 20px;
 }
@@ -31,8 +32,20 @@ h1 {
   width: 100%;
 }
 
+.dark-mode #game {
+  background-color: #444;
+  border: 1px solid #777;
+}
+
 label {
   font-size: 1.2rem;
+}
+
+.dark-mode label, 
+.dark-mode #result, 
+.dark-mode .hint-text, 
+.dark-mode .digit-box {
+  color: white;
 }
 
 input[type="text"] {
@@ -44,6 +57,12 @@ input[type="text"] {
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.dark-mode input[type="text"] {
+  background-color: #666;
+  color: white;
+  border: 1px solid #999;
 }
 
 button {
@@ -90,6 +109,12 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #333;
+}
+
+.dark-mode .digit-box {
+  border-color: white;
+  background-color: #555;
 }
 
 .hint-text {
