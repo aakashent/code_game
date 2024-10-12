@@ -30,7 +30,7 @@ function submitGuess() {
   }
 
   const hint = checkGuess(guess);
-  document.getElementById('hints').innerHTML += `<p>Attempt ${attempts}: ${guess} - ${hint}</p>`;
+  displayGuessWithHint(guess, hint);
 
   if (guess === secretCode) {
     document.getElementById('result').innerHTML = "Congratulations! You've cracked the code!";
@@ -52,4 +52,29 @@ function checkGuess(guess) {
   }
 
   return `${correctPosition} number(s) are correct and well placed, ${correctNumber} number(s) are correct but wrongly placed.`;
+}
+
+function displayGuessWithHint(guess, hint) {
+  const hintsDiv = document.getElementById('hints');
+
+  // Create a container for the current attempt's digits
+  const hintContainer = document.createElement('div');
+  hintContainer.classList.add('hint-container');
+
+  // Create digit boxes for each number in the guess
+  for (let i = 0; i < guess.length; i++) {
+    const digitBox = document.createElement('div');
+    digitBox.classList.add('digit-box');
+    digitBox.innerText = guess[i];
+    hintContainer.appendChild(digitBox);
+  }
+
+  // Append the hintContainer to the hints div
+  hintsDiv.appendChild(hintContainer);
+
+  // Create and append the hint text
+  const hintText = document.createElement('p');
+  hintText.classList.add('hint-text');
+  hintText.innerText = hint;
+  hintsDiv.appendChild(hintText);
 }
