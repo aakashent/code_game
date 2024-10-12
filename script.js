@@ -1,6 +1,6 @@
 let secretCode = generateCode();
 let attempts = 0;
-const maxAttempts = 10;
+let maxAttempts = 10;
 
 function generateCode() {
   let digits = [];
@@ -77,4 +77,30 @@ function displayGuessWithHint(guess, hint) {
   hintText.classList.add('hint-text');
   hintText.innerText = hint;
   hintsDiv.appendChild(hintText);
+}
+
+// Toggle Settings Panel
+function toggleSettings() {
+  const settingsPanel = document.getElementById('settings-panel');
+  if (window.innerWidth < 769) {
+    settingsPanel.style.bottom = settingsPanel.style.bottom === "0px" ? "-200px" : "0px";
+  } else {
+    settingsPanel.style.left = settingsPanel.style.left === "0px" ? "-300px" : "0px";
+  }
+}
+
+// Update Maximum Attempts
+function updateMaxAttempts() {
+  const maxAttemptsInput = document.getElementById('max-attempts');
+  maxAttempts = parseInt(maxAttemptsInput.value);
+}
+
+// Toggle Dark Mode
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+}
+
+// Close Settings Panel
+function closeSettings() {
+  toggleSettings();
 }
