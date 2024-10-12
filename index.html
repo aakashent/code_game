@@ -15,6 +15,23 @@
     <div id="result"></div>
     <div id="hints"></div>
   </div>
+
+  <!-- Floating Settings Button -->
+  <div id="settings-button" onclick="toggleSettings()">
+    ⚙️
+  </div>
+
+  <!-- Settings Panel -->
+  <div id="settings-panel">
+    <h2>Game Settings</h2>
+    <label for="max-attempts">Max Attempts:</label>
+    <input type="number" id="max-attempts" value="10" min="1" onchange="updateMaxAttempts()">
+    <br><br>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <br><br>
+    <button onclick="closeSettings()">Close Settings</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
